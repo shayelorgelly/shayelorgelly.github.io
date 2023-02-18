@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+    <meta property="og:title" content="forgot name" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image"
+        content="https://cdn.discordapp.com/attachments/1039486014613364799/1074603304497192990/Frame_2.png"
+        />
+    <meta name="theme-color" content="#FF0000">
+    <link id="favicon" rel="shortcut icon"
+        type="https://cdn.discordapp.com/attachments/1039486014613364799/1074603304497192990/Frame_2.png"
+        href="favicon.png" />
+    <!--metadata for the site so it looks nicer and embeds when a link to the site is sent to someone eg on discord or twitter-->
+    <title>havent decided name</title>
+    <link href="css.css" rel="stylesheet" type="text/css">
+</head>
+
+<body   onload="window.scrollTo(5000,5000)"   ondrop="drop()"   ondragover="uploadiconandstuff()">
+    <div class="contextmenu" id="cm" oncontextmenu="return(false)">
+        <p>hi</p>
+    </div>
+    
+    <canvas class="grid" id="grid" onmousedown="mdcanvas()"    onmouseup="mucanvas()"  onmouseleave="mucanvas()"    oncontextmenu="return(false)">
+
+    </canvas>
+
+
+</body>
+<!--end of html-->
+<script>
+    //start of javascript
+    var mdoc = false;
+    var lastpos = {
+        x: 0,
+        y: 0
+    };
+    var currentpos = {
+        x: 0,
+        y: 0
+    };
+    var lastscroll = 0
+    var currentscroll = 0
+
+    //contextmenu timeout weight
+    var cmenutimeout = 0
+
+
+    //event listeners
+    addEventListener('mousemove', (event) =>{
+        currentpos.x = event.offsetX
+        currentpos.y = event.offsetY
+        lastpos.x = event.movementX;
+        lastpos.y = event.movementY;
+        if (mdoc){//drag scrolling like photoshop or blender
+            window.scrollBy(0 - lastpos.x, 0 - lastpos.y);//invert scroll with 0-
+        }
+    });
+    //functions
+
+    function mdcanvas(){//mouse down on canvas
+        var stuffs = [// i do not know why i thought it would work but it does
+            ()=>{//left click
+                mdoc = true
+                const contextmenu = document.querySelector(".contextmenu");
+                contextmenu.style.filter = 'opacity(0%)'
+                contextmenu.style.pointerEvents = 'none'
+            },
+            ()=>{
+                //middle mouse click
+            },
+            ()=>{
+                //right click
+            }
+        ]
+        stuffs[event.button]();
+    };
+    function mucanvas(){//mouse up on canvas
+        var stuffs = [// i do not know why i thought it would work but it does
+            ()=>{//left click
+                mdoc = false
+            },
+            ()=>{//middle mouse click
+            },
+            ()=>{
+                //right click
+                
+                if (true){
+                    const contextmenu = document.querySelector(".contextmenu");
+                    contextmenu.style.top = currentpos.y + "px"
+                    contextmenu.style.left = currentpos.x + "px" 
+                    contextmenu.style.filter = 'opacity(100%)'
+                    contextmenu.style.pointerEvents = 'auto'
+                }
+            }
+        ]
+        stuffs[event.button]();
+    };
+    //drag and drop type shit u feel me?
+    function uploadiconandstuff(){
+        event.preventDefault()
+        //write later but show the upload icon and blur the rest of the screen
+    }
+
+</script>
