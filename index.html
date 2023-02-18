@@ -16,7 +16,7 @@
 
 <body   onload="window.scrollTo(5000,5000)"   ondrop="drop()"   ondragover="uploadiconandstuff()">
     <div class="contextmenu" id="cm" oncontextmenu="return(false)">
-        <p>hi</p>
+        
     </div>
     
     <canvas class="grid" id="grid" onmousedown="mdcanvas()"    onmouseup="mucanvas()"  onmouseleave="mucanvas()"    oncontextmenu="return(false)">
@@ -28,6 +28,15 @@
 <!--end of html-->
 <script>
     //start of javascript
+    //context menu
+    var contextmenus = {
+        "maxelements": 4,
+        "currentelements":() =>{
+            var cmenu = document.querySelector(".contextmenu");
+            return cmenu.childElementCount
+        },
+
+    }
     var mdoc = false;
     var lastpos = {
         x: 0,
@@ -62,7 +71,7 @@
                 mdoc = true
                 const contextmenu = document.querySelector(".contextmenu");
                 contextmenu.style.filter = 'opacity(0%)'
-                contextmenu.style.pointerEvents = 'none'
+                contextmenu.style.pointerEvents = 'none'//disable clicking on element while its invisible
             },
             ()=>{
                 //middle mouse click
@@ -88,7 +97,7 @@
                     contextmenu.style.top = currentpos.y + "px"
                     contextmenu.style.left = currentpos.x + "px" 
                     contextmenu.style.filter = 'opacity(100%)'
-                    contextmenu.style.pointerEvents = 'auto'
+                    contextmenu.style.pointerEvents = 'auto'//allow clicking on element
                 }
             }
         ]
@@ -99,5 +108,9 @@
         event.preventDefault()
         //write later but show the upload icon and blur the rest of the screen
     }
-
+    function contextmenunewbutton(name, buttontext, callback){
+        if(!contextmenus.currentelements() < 6){//if there is less than 6 elements 
+            
+        }
+    }
 </script>
