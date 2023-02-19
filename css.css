@@ -37,7 +37,7 @@ canvas.grid{
 }
 .contextmenu{
     position: absolute;
-    z-index: 1000000;
+    z-index: 10;
     width: 200px;
     max-height: 300px;
     padding-bottom: 6.25px;
@@ -47,11 +47,46 @@ canvas.grid{
     transition-property: filter;
     transition-duration: 0.2s;
     text-align: center;
+    border-radius: 5px;
+}
+.toolbar{
+    z-index: 11;
+    width: 100%;
+    height: 30px;
+    position: fixed;
+    background-color: rgb(54, 54, 54);
+    margin: none;
+    padding: none;
+    top:0px;
+    left: 0px;
+}
+.toolbar button{
+    width: 55px;
+    height: 90%;
+    margin-top:1.5px;
+    background-color: #383c41;
+    transition: background-color 0.05s linear;
+    border: none;
+    border-radius: 5px;
+}
+.toolbar button:hover{
+    transition: background-color 0.05s linear;
+    background-color: #16181a;  
 }
 .cbutton{
     width: 187.5px;
     height: 40px;
-    border: 0px 0px 0px 0px;
     margin-top: 6.25px;
     text-align: left;
+    border-radius: 5px;
+    border: none;
+    background-color: #383c41;
+    transition: background-color 0.15s linear;
+    
+
+}
+.cbutton:hover{
+    border: none;
+    background-color: aqua;
+    transition: background-color 0.15s linear;
 }

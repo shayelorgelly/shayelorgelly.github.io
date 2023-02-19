@@ -15,7 +15,9 @@
     <div class="contextmenu" id="cm" oncontextmenu="return(false)">
         <!--the context menu is always where the mouse right clicks even when it disappears, it uses javascript to prevent itself from being clicked-->
     </div>
-    
+    <div class="toolbar">
+        <button onclick="">File</button>
+    </div>
     <canvas class="grid" id="grid" onmousedown="mdcanvas()"    onmouseup="mucanvas()"  onmouseleave="mucanvas()"    oncontextmenu="return(false)">
 
     </canvas>
@@ -58,12 +60,24 @@
         lastpos.x = event.movementX;
         lastpos.y = event.movementY;
         if (mdoc){//drag scrolling like photoshop or blender
+            let vectorx = lastpos.x
+            let vectory = lastpos.y
+            if(vectorx < 0){
+                vectorx = 0-vectorx
+            }
+            if(vectory < 0){
+                vectory = 0-vectory
+            }
+            console.log(`click scrolling!! amount:${vectorx + vectory}`)
+            
             window.scrollBy(0 - lastpos.x, 0 - lastpos.y);//invert scroll with 0-
         }
         if(!contextmenus.init){
             contextmenunewbutton(false, "Add", ()=>{console.log("test")})
             contextmenus.init = true
         }
+        
+
     });
     //functions
     function mdcanvas(){//mouse down on canvas
