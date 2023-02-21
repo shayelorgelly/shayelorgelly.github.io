@@ -14,13 +14,11 @@ canvas.grid{
     background-color: #23272A;
 }
 ::-webkit-scrollbar{
-    width: 0px;
     /*scrollbar is not transparent >:(*/
     background-color: rgba(0,0,0,0);
     height: 0px;
     width: 0px;
     /*scrollbar is now transparent*/
-    
 }
 .copybutton{
     margin: 0px,0px,0px,0px;
@@ -86,7 +84,6 @@ canvas.grid{
 
 }
 .cbutton:hover{
-    border: none;
     background-color: aqua;
     transition: background-color 0.15s linear;
 }
