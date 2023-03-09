@@ -1,19 +1,27 @@
-button{
-    scroll-behavior: smooth;
+body{
     font-family: Helvetica, sans-serif;
-    color: rgb(230, 230, 230);
-}
-canvas.grid{
-    position: absolute;
+        background-image:
+        linear-gradient(to right, rgb(54, 54, 54) 2px, transparent 2px),
+        linear-gradient(to bottom, rgb(54, 54, 54) 2px, transparent 2px);   
     top: 0px;
     left: 0px;
     width: 10000px;
     height: 10000px;
     background-size: 35px 35px;
-    background-image:
-        linear-gradient(to right, rgb(54, 54, 54) 2px, transparent 2px),
-        linear-gradient(to bottom, rgb(54, 54, 54) 2px, transparent 2px);
+
     background-color: #23272A;
+}
+button{
+    scroll-behavior: smooth;
+    font-family: Helvetica, sans-serif;
+    color: rgb(230, 230, 230);
+    background-color: #23272A;
+}
+.nbutton{
+    position: absolute;
+    margin: none;
+    width: 100%;
+    height: 100%;
 }
 ::-webkit-scrollbar{
     background-color: rgba(0,0,0,0);
@@ -35,7 +43,6 @@ canvas.grid{
 }
 .contextmenu{
     position: absolute;
-    z-index: 10;
     width: 200px;
     max-height: 300px;
     padding-bottom: 6.25px;
@@ -48,7 +55,6 @@ canvas.grid{
     border-radius: 5px;
 }
 .toolbar{
-    z-index: 11;
     width: 100%;
     height: 30px;
     position: fixed;
@@ -57,6 +63,7 @@ canvas.grid{
     padding: none;
     top:0px;
     left: 0px;
+    z-index: 100;
 }
 .toolbar button{
     width: 55px;
@@ -71,39 +78,27 @@ canvas.grid{
     transition: background-color 0.05s linear;
     background-color: #16181a;  
 }
-.cbutton{
-    width: 187.5px;
-    height: 40px;
-    margin-top: 6.25px;
-    text-align: left;
-    border-radius: 5px;
-    border: none;
-    background-color: #383c41;
-    transition: background-color 0.15s linear;
-}
-.cbutton:hover{
-    background-color: rgb(121, 45, 243);
-    transition: background-color 0.15s linear;
+.boxbox{
+    position: absolute;
+    color: rgb(230, 230, 230);
+    box-shadow: 0 0 50px 5px #191b1d;
 }
 .box{
-    display: flex;
-    background-color: rgb(54, 54, 54);
-    position: absolute;
-    width: 200px;
-    height: 500px;
-    z-index: 8;
+    top:100%;
+    left:100%;
+    background-color: rgb(27, 27, 27);
+
 }
 .boxlabel{
-    width: 200px;
-    height: 500px;
-    z-index: 9;
+    background: #23272A;
+    margin:0px 0px 0px 0px;
+    border-bottom: 2px solid #383c41;
 }
 .dropdown{
     background-color: rgb(54, 54, 54);
     position: fixed;
     width: 200px;
     height: 500px;
-    z-index: 11;
 }
 .event{
     position: fixed;
